@@ -17,7 +17,9 @@
                "lem-encodings"
 	       #+sbcl
 	       sb-concurrency
-	       "lem-mailbox")
+	       "lem-mailbox"
+               "closure-html"
+               "3bmd")
   :pathname "src"
   :serial t
   :components ((:module "common"
@@ -95,6 +97,7 @@
                 :components ((:file "popup-window")
                              (:file "popup-message")
                              (:file "popup-menu")
+                             (:file "html-renderer")
                              (:file "markdown-buffer")
                              (:file "multi-column-list")
                              (:file "context-menu")

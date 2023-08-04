@@ -97,7 +97,7 @@
                 :components ((:file "popup-window")
                              (:file "popup-message")
                              (:file "popup-menu")
-                             (:file "html-renderer")
+                             ;; (:file "html-renderer")
                              (:file "markdown-buffer")
                              (:file "multi-column-list")
                              (:file "context-menu")

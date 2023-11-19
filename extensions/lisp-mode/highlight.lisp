@@ -2,7 +2,7 @@
   (:use :cl :lem :lem-lisp-mode/internal))
 (in-package :lem-lisp-mode/highlight)
 
-(defvar *timer*)
+(defvar *timer* nil)
 
 (define-attribute highlight-attribute
   (t :underline t :foreground "cyan"))
@@ -60,7 +60,8 @@
                               (highlight-symbol point)))))))))
 
 (defun init-highlight-timer ()
-  (let ((timer (make-idle-timer 'lisp-highlight :name "lisp-show"
+  (let ((timer (make-idle-timer 'lisp-highlight
+                                :name "lisp-highlight"
                                 :handle-function 'stop-highlight-timer)))
     (setf *timer* timer)
     (start-timer timer 100 t)))
@@ -69,3 +70,8 @@
   (when *timer*
     (stop-timer *timer*)
     (setf *timer* nil)))
+
+(define-command experimental/lisp-toggle-highlight () ()
+  (if *timer*
+      (stop-highlight-timer)
+      (init-highlight-timer)))

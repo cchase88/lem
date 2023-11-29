@@ -64,7 +64,7 @@
                                 :name "lisp-highlight"
                                 :handle-function 'stop-highlight-timer)))
     (setf *timer* timer)
-    (start-timer timer 100 t)))
+    (start-timer timer 100 :repeat t)))
 
 (defun stop-highlight-timer ()
   (when *timer*
